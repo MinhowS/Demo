@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue js to do list</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container" id="app">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">TodoList By Vue</div>
+                        <div class="panel-body">
+                            <h1>my todos </h1>
+                            <ul class="list-group">
+                                <li class="list-group-item"
+                                    v-for="(todo,index) in todos">
+                                    {{todo.title}}
+                                    <button class="btn btn-warning btn-xs pull-right"
+                                           @click="deleteTodo(index)"
+                                    >删除</button>
+                                </li>
+                            </ul>
+                            <form @submit.prevent="addTodo(newTodo)">
+                                <div class="form-group">
+                                    <input type="text"
+                                           v-model="newTodo.title"
+                                           class="form-control"
+                                           placeholder="Add a new data">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success" type="submit">Add todo</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="js/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                todos:[
+                    {id:1,title:'todolist'}
+                ],
+                newTodo:{id:null,title:''},
+            },
+            methods:{
+                addTodo(newTodo){
+                    this.todos.push(newTodo);
+                    this.newTodo = {id:null,title:''}
+                },
+                deleteTodo(index){
+                    this.todos.splice(index,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
