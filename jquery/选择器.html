@@ -10,6 +10,9 @@
         body {
             line-height: 1.5;
         }
+        .focused {
+            background-color: #abcdef;
+        }
 
     </style>
     <script src="js/jquery1.11.1.js"></script>
@@ -17,12 +20,25 @@
 
         $(document).ready(function () {
             $('#mydiv').css('color','red');
-            $('p').click(function () {
+           /* $('p').click(function () {
                 alert(this.innerText)
-            });
+            });*/
             $(".myClass").css("background-color","orange");
             $("*");
-            $("p,span,div.noteMe")
+            $("p,span,div.noteMe");
+            $("#run").click(function () {
+                $("div.mov:not(:animated)").animate({left:"+=20"},1000);
+            });
+            $("#content").delegate("*","focus blur",function (event) {
+                var elem = $(this);
+                setTimeout(function () {
+                    elem.toggleClass('focused',elem.is(":focus"));
+                },0);
+            });
+            $("p").dblclick(function(){
+                $(this).hide();
+            });
+
         })
 
     </script>
@@ -35,5 +51,17 @@
     我是p标签
 </p>
 <p>我也是p标签</p>
+<button id="run">Run</button>
+<div class="mov">我会动</div>
+<div id="content">
+    <input tableIndex="1">
+    <input tableIndex="2">
+    <select tableIndex="3">
+        <option>select menu</option>
+    </select>
+    <div tabindex="4">
+        a div
+    </div>
+</div>
 </body>
 </html>
