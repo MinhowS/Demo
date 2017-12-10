@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滑动</title>
+    <style>
+        #panel,#flip1,#flip2,#flip3 {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //slideDown
+            $("#flip1").click(function () {
+                $("#panel").slideDown("slow");
+            });
+            //slideUp
+            $("#flip2").click(function () {
+                $("#panel").slideUp("slow");
+            });
+            //slideToggle
+            $("#flip3").click(function () {
+                $("#panel").slideToggle("slow")
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div id="flip1">点我滑下面板</div><div id="flip2">点我拉起面板</div><div id="flip3">点我，拉起或滑下面板</div>
+<div id="panel">Hello world!</div>
+</body>
+</html>
