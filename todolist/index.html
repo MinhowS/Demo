@@ -92,9 +92,14 @@
         },
         methods: {
             addTodo(newTodo) {
+
+                // if (newTodo.title && reg.test(newTodo.title)){
                 this.todos.push(newTodo);
                 this.newTodo = {id: null, title: '', completed: false}
-            },
+                }/*else {
+                    alert(111)
+                }
+                }*/,
         }
     })
     new Vue({
