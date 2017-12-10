@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery效果</title>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 显示隐藏
+            $("#hide").click(function () {
+                $("p").hide();
+            });
+            $("#hide_slow").click(function () {
+                $("p").hide("slow",function () {
+                    console.log("我慢慢隐藏了");
+                })
+            });
+            $("#show").click(function () {
+                $("p").show();
+            });
+            // 切换显示隐藏
+            $("#button").click(function () {
+                $(".togl").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+<p>如果你点击“隐藏”按钮，我将会消失。消失后，点击“显示”按钮，我又会出现了</p>
+<button id="hide">隐藏</button>
+<button id="hide_slow">慢慢隐藏</button>
+<button id="show">显示</button>
+<br>
+<p class="togl">来回切换的文本</p>
+<button id="button">显示/隐藏</button>
+</body>
+</html>
