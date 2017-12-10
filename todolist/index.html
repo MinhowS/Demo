@@ -92,14 +92,14 @@
         },
         methods: {
             addTodo(newTodo) {
-
-                // if (newTodo.title && reg.test(newTodo.title)){
+                //先判断输入的内容是否全为空格
+                if (newTodo.title && newTodo.title.split(" ").join("").length !=0){
                 this.todos.push(newTodo);
                 this.newTodo = {id: null, title: '', completed: false}
-                }/*else {
-                    alert(111)
+                }else {
+                    alert("输入的任务不能为空，请重新输入")
                 }
-                }*/,
+                },
         }
     })
     new Vue({
