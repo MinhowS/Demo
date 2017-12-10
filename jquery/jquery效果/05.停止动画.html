@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>停止动画</title>
+    <style>
+        #flip,#panel {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: 1px solid #c3c3c3;
+        }
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+
+    </style>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#flip").click(function () {
+                $("#panel").slideDown(3000);
+            });
+            $("#btn").click(function () {
+                $("#panel").stop();
+            })
+
+        })
+    </script>
+</head>
+<body>
+<button id="btn">停止动画</button>
+<button id="flip">点我向下滑动面板</button>
+<div id="panel">你好，jquery</div>
+</body>
+</html>
