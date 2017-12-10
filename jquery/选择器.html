@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            line-height: 1.5;
+        }
+
+    </style>
+    <script src="js/jquery1.11.1.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#mydiv').css('color','red');
+            $('p').click(function () {
+                alert(this.innerText)
+            });
+            $(".myClass").css("background-color","orange");
+            $("*");
+            $("p,span,div.noteMe")
+        })
+
+    </script>
+</head>
+<body>
+<div id="noteME" class="noteMe"><p>id = 'noteME'</p></div>
+<div id="mydiv" class="myClass">id = "myDiv"</div>
+<span class="myClass">我的类名也是myClass</span>
+<p>
+    我是p标签
+</p>
+<p>我也是p标签</p>
+</body>
+</html>
