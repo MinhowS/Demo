@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <h1>计划完成的任务数： {{taskCount}} </h1>
+    <!--   <img src="./assets/logo.png">
+       <HelloWorld/>-->
+    <tasks :tasks="tasks"></tasks>
+    <TaskForm :tasks="tasks"/>
+    <!--<task-form :tasks="tasks"></task-form>-->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+  // import HelloWorld from './components/HelloWorld'
+  import tasks from './components/tasks'
+  import TaskForm from './components/TaskForm'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  export default {
+    name: 'app',
+    components: {
+      /*HelloWorld,*/tasks,TaskForm
+    },
+    data() {
+      return {
+        tasks: [
+          {id: 1, title: '开始工作', completed: false}
+        ],
+      }
+    },
+    computed: {
+      taskCount() {
+        return this.tasks.length;
+      }
+    },
+
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
