@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue js to do list</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
+    <style>
+        .completed {
+            color: #5cb85c;
+            text-decoration: line-through;
+        }
+        .margin-right-10 {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">任务清单 By Vue2.5.1</div>
+                    <div class="panel-body">
+                        <h1>计划完成的任务数： {{taskCount}} </h1>
+                        <ul class="list-group">
+                            <li class="list-group-item"
+                                :class="{'completed':task.completed}"
+                                v-for="(task,index) in tasks">
+                                {{task.title}}
+                                <button class="btn btn-warning btn-xs pull-right"
+                                        @click="deleteTask(index)"
+                                >删除
+                                </button>
+                                <button class="btn btn-xs pull-right margin-right-10"
+                                        :class="[task.completed ? 'btn-danger' : 'btn-success']"
+                                        @click="toggleStatus(task)"
+                                >{{task.completed ? '已完成' : '未完成'}}
+                                </button>
+                            </li>
+                        </ul>
+                        <form @submit.prevent="addTask(newTask)">
+                            <div class="form-group">
+                                <input type="text"
+                                       v-model="newTask.title"
+                                       class="form-control"
+                                       placeholder="要完成什么">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success" type="submit">添加任务</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            tasks: [],//空数组存储数据
+            newTask: {id: null, title: '', completed: false},
+
+        },
+        computed: {
+            taskCount() {
+                return this.tasks.length;
+            }
+        },
+        methods: {
+            addTask(newTask) {
+                //先判断输入的内容是否全为空格
+                if (newTask.title && newTask.title.split(" ").join("").length != 0){
+                    this.tasks.push(newTask);
+                    this.newTask = {id: null, title: '', completed: false};//初始化newTask
+                } else {
+                    alert("输入的任务不能为空，请重新输入")
+                }
+            },
+            deleteTask(index) {
+                this.tasks.splice(index, 1)
+            },
+            toggleStatus(task) {
+                task.completed = !task.completed
+            }
+        }
+    })
+</script>
+</body>
+</html>
