@@ -23,11 +23,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">TodoList By Vue2.5.1</div>
+                    <div class="panel-heading">任务清单 By Vue2.5.1</div>
                     <div class="panel-body">
-                        <h1>计划完成的任务数： {{todoCount}} </h1>
-                        <todo-items :todos="todos"></todo-items>
-                        <todo-form :todos="todos"></todo-form>
+                        <h1>计划完成的任务数： {{taskCount}} </h1>
+                        <task-items :tasks="tasks"></task-items>
+                        <task-form :tasks="tasks"></task-form>
                     </div>
                 </div>
             </div>
@@ -35,31 +35,31 @@
     </div>
 </nav>
 
-<script type="text/x-template" id="todo-items-template">
+<script type="text/x-template" id="task-items-template">
     <ul class="list-group">
         <li class="list-group-item"
-            :class="{'completed':todo.completed}"
-            v-for="(todo,index) in todos">
-            {{todo.title}}
+            :class="{'completed':task.completed}"
+            v-for="(task,index) in tasks">
+            {{task.title}}
             <button class="btn btn-warning btn-xs pull-right"
-                    @click="deleteTodo(index)"
+                    @click="deleteTask(index)"
             >删除
             </button>
             <button class="btn btn-xs pull-right margin-right-10"
-                    :class="[todo.completed ? 'btn-danger' : 'btn-success']"
-                    @click="toggleCompletion(todo)"
-            >{{todo.completed ? '已完成' : '未完成'}}
+                    :class="[task.completed ? 'btn-danger' : 'btn-success']"
+                    @click="toggleStatus(task)"
+            >{{task.completed ? '已完成' : '未完成'}}
             </button>
 
         </li>
     </ul>
 
 </script>
-<script type="text/x-template" id="todo-add-form-template">
-    <form @submit.prevent="addTodo(newTodo)">
+<script type="text/x-template" id="task-add-form-template">
+    <form @submit.prevent="addTask(newTask)">
         <div class="form-group">
             <input type="text"
-                   v-model="newTodo.title"
+                   v-model="newTask.title"
                    class="form-control"
                    placeholder="要完成什么">
         </div>
@@ -70,53 +70,50 @@
 </script>
 <script src="js/vue.js"></script>
 <script>
-    Vue.component('todo-items', {
-        template: `#todo-items-template`,
-        props: ['todos'],
+    Vue.component('task-items', {
+        template: `#task-items-template`,
+        props: ['tasks'],
         methods: {
-            deleteTodo(index) {
-                this.todos.splice(index, 1)
+            deleteTask(index) {
+                this.tasks.splice(index, 1)
             },
-            toggleCompletion(todo) {
-                todo.completed = !todo.completed
+            toggleStatus(task) {
+                task.completed = !task.completed
             }
         }
-    })
-    Vue.component('todo-form',{
-        props:['todos'],
-        template:'#todo-add-form-template',
+    });
+    Vue.component('task-form',{
+        props:['tasks'],
+        template:'#task-add-form-template',
         data(){
             return {
-                newTodo: {id: null, title: '', completed: false},
+                newTask: {id: null, title: '', completed: false},
             }
         },
         methods: {
-            addTodo(newTodo) {
+            addTask(newTask) {
                 //先判断输入的内容是否全为空格
-                if (newTodo.title && newTodo.title.split(" ").join("").length != 0){
-                this.todos.push(newTodo);
-                this.newTodo = {id: null, title: '', completed: false}
-                }else {
+                if (newTask.title && newTask.title.split(" ").join("").length != 0){
+                this.tasks.push(newTask);
+                this.newTask = {id: null, title: '', completed: false}
+                } else {
                     alert("输入的任务不能为空，请重新输入")
                 }
-                },
+            },
         }
-    })
+    });
     new Vue({
         el: '#app',
         data: {
-            msg: 'hello',
-            todos: [
-                {id: 1, title: '起床学习', completed: false}
+            tasks: [
+                {id: 1, title: '开始工作', completed: false}
             ],
-
         },
         computed: {
-            todoCount() {
-                return this.todos.length;
+            taskCount() {
+                return this.tasks.length;
             }
         },
-
     })
 </script>
 </body>
