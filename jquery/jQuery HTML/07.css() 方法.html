@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css() 方法</title>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(function () {
+            //返回css属性 将返回首个匹配元素的css属性
+            $("#btn1").click(function () {
+                console.log("背景色是："+ $("p").css("background-color"))
+            });
+            //设置css属性 为所有匹配元素设置css属性
+            $("#btn2").click(function () {
+                $("p").css("background-color","yellow")
+            });
+            //设置多个css属性
+            $("#btn3").click(function () {
+                $("p").css({"background-color":"yellow","font-size":"200%"})
+            })
+
+        })
+    </script>
+</head>
+<body>
+<h2>这是一个标题</h2>
+<p style="background-color: #ff0000;">这是一个段落</p>
+<p style="background-color: #00ff00;">这是一个段落</p>
+<p style="background-color: #0000ff;">这是一个段落</p>
+<button id="btn1">返回第一个p元素的background-color</button>
+<button id="btn2">设置所有p元素的background-color</button>
+<button id="btn3">设置p元素的多个属性</button>
+</body>
+</html>
