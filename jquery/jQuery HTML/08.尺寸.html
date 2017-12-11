@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>尺寸</title>
+    <style>
+        div[id] {
+            height: 100px;
+            width: 300px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+        .clearfix:after {
+            content: '';
+            height: 0;
+            line-height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+        .div {
+            float: left;
+            margin: 10px;
+        }
+        .div1 {
+            position: absolute;
+            left: 500px;
+            top: 50px;
+        }
+    </style>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                var txt1='';
+                txt1 += "div的宽度是：" + $("#div1").width() + "</br>";
+                txt1 += "div的高度是：" + $("#div1").height();
+                $("#div1").html(txt1)
+            });
+            $("#btn2").click(function(){
+                var txt2="";
+                txt2+="div 宽度: " + $("#div2").width() + "</br>";
+                txt2+="div 高度: " + $("#div2").height() + "</br>";
+                txt2+="div 宽度，包含内边距: " + $("#div2").innerWidth() + "</br>";
+                txt2+="div 高度，包含内边距: " + $("#div2").innerHeight();
+                $("#div2").html(txt2);
+            });
+            $("#btn3").click(function(){
+                var txt3="";
+                txt3+="div 宽度: " + $("#div3").width() + "</br>";
+                txt3+="div 高度: " + $("#div3").height() + "</br>";
+                txt3+="div 宽度，包含内边距和边框: " + $("#div3").outerWidth() + "</br>";
+                txt3+="div 高度，包含内边距和边框: " + $("#div3").outerHeight();
+                $("#div3").html(txt3);
+            });
+            $("#btn4").click(function(){
+                var txt4="";
+                txt4+="div 宽度: " + $("#div4").width() + "</br>";
+                txt4+="div 高度: " + $("#div4").height() + "</br>";
+                txt4+="div 宽度，包含内边距和边框: " + $("#div4").outerWidth(true) + "</br>";
+                txt4+="div 高度，包含内边距和边框: " + $("#div4").outerHeight(true);
+                $("#div4").html(txt4);
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<br>
+<div class="div">
+<button id="btn1">显示div元素的尺寸</button>
+<p>width() - 返回元素的宽度</p>
+<p>height() - 返回元素的高度</p>
+</div>
+<div class="div">
+<button id="btn2">显示 div 元素的尺寸</button>
+<p>innerWidth() - 返回元素的宽度 (包含内边距)。</p>
+<p>innerHeight() - 返回元素的高度 (包含内边距)。</p>
+</div>
+<div class="div">
+<button id="btn3">显示 div 元素的尺寸</button>
+<p>outerWidth() - 返回元素的宽度 (包含内边距和边框)。</p>
+<p>outerHeight() - 返回元素的高度 (包含内边距和边框)。</p>
+</div>
+<div class="div">
+    <button id="btn4">显示 div 元素的尺寸</button>
+    <p>outerWidth(true) - 返回元素的宽度 (包含内边距、外边距和边框)。</p>
+    <p>outerHeight(true) - 返回元素的高度 (包含内边距、外边距和边框)。</p>
+</div>
+<p class="clearfix"></p>
+<div class="div1">
+    <p> height: 100px;</p>
+       <p> width: 300px;</p>
+        <p>padding: 10px;</p>
+    <p>margin: 3px;</p>
+       <p> border: 1px;</p>
+</div>
+</body>
+</html>
