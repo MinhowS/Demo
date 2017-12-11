@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取属性</title>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                alert($("#bd").attr("href"));
+            })
+        })
+    </script>
+</head>
+<body>
+<p><a href="http://baidu.com" id="bd">百度</a></p>
+<button id="btn">点我显示href的值</button>
+</body>
+</html>
