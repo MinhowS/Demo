@@ -93,7 +93,7 @@
         methods: {
             addTodo(newTodo) {
                 //先判断输入的内容是否全为空格
-                if (newTodo.title && newTodo.title.split(" ").join("").length !=0){
+                if (newTodo.title && newTodo.title.split(" ").join("").length != 0){
                 this.todos.push(newTodo);
                 this.newTodo = {id: null, title: '', completed: false}
                 }else {
