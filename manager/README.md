@@ -1,4 +1,4 @@
-# manager-system
+# manager
 
 > A Vue.js project
 
