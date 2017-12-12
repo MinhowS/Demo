@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/*多行注释
+*的
+*/
+.alert, .alert-info {
+  padding: 15px;
+}
+
+.alert a, .alert-info a {
+  font-weight: bold;
+}
+
+.alert-info {
+  background-color: #cccccc;
+}
+
+/*# sourceMappingURL=style.css.map */

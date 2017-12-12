@@ -1,0 +1,22 @@
+.nav {
+	height: 100px;
+	ul {
+		margin: 0;
+		li {
+			float: left;
+			list-style: none;
+			padding: 5px;
+			&:hover {
+				background-color: #fff;
+				color:#fff;
+			};
+			:active {
+				background-color: #FFF;
+			}
+		}
+	}
+
+	& &-text {
+		font-size: 15px;
+	}
+}
