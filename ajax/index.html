@@ -6,10 +6,35 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>简单的ajax</title>
+    <script src="./js/jquery1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("input[type = button]").click(function () {
+                var name = $("#name").val();
+                var pwd = $("#pwd").val();
+                $.ajax({
+                    contentType:"application/x-www.form.urlencoded;charset=UTF-8",
+                    url:"./php/index.php",
+                    type:"get",
+                    data:{name:name,pwd:pwd},
+                    success: function(data){
+                        $(".msg").html(data);
+                    }
+                });
+            })
+        })
+    </script>
 </head>
 <body>
 <p>ajax需要在服务器端运行</p>
 <p>这是一个简单的php后台的ajax请求</p>
+
+<form action="php/index.php" method="get">
+    <label for="name">用户名：</label><input type="text" name="name" id="name"><br><br>
+    <label for="pwd">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label><input type="text" name="pwd" id="pwd"><br>
+    <input type="button" value="登陆">
+    <p class="msg"></p>
+</form>
 
 </body>
 </html>
