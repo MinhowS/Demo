@@ -19,12 +19,23 @@
                     delay: 1000,//1s切换一次    还可以在某个slide上设置单独的停留时间，例<div class="swiper-slide" data-swiper-autoplay="2000">
                 },
                 speed: 100,//切换速度,即slider自动滑动开始到结束的时间（单位ms），也是触摸滑动时释放至贴合的时间。
-                loop: true,
+                loop: true,//会在原本slide前后复制若干个slide(默认一个)并在合适的时候切换，让Swiper看起来是循环的
                 grabCursor : true,//设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。（根据浏览器形状有所不同）
+                initialSlide :2,//设定初始化时slide的索引。
+
 
                 // 如果需要分页器
                 pagination: {
                     el: '.swiper-pagination',
+                    type: 'bullets',// 圆点（默认）
+                    //type: 'fraction',//分式
+                    //type : 'progressbar',//进度条
+                    //type : 'custom',//自定义
+                    bulletElement : 'li',//设定分页器指示器（小点）的HTML标签。
+                    hideOnClick :false,//默认false分页器会一直显示。这个选项设置为true时  点击  Swiper会隐藏/显示分页器。
+                    clickable :true,//此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换。
+
+
                 },
 
                 // 如果需要前进后退按钮
@@ -53,7 +64,7 @@
 
     <!-- 如果需要导航按钮 -->
     <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
 
     <!-- 如果需要滚动条 -->
    <!-- <div class="swiper-scrollbar"></div>-->
