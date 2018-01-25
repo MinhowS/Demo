@@ -1,0 +1,13 @@
+.swiper-container {
+    width: 600px;
+    height: 300px;
+}
+.swiper-slide1 {
+    background-color: red;
+}
+.swiper-slide2 {
+    background-color: blue;
+}
+.swiper-slide3 {
+    background-color: greenyellow;
+}

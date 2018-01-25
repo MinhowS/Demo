@@ -6,9 +6,62 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Swiper轮播</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./css/swiper-4.1.0.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-1.10.1.min.js"></script>
+    <script src="./js/swiper-4.1.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal',//Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)。
+                /*autoplay: true,//设置为true启动自动切换，并使用默认的切换设置。 默认停留3s*/
+                autoplay : {
+                    delay: 1000,//1s切换一次    还可以在某个slide上设置单独的停留时间，例<div class="swiper-slide" data-swiper-autoplay="2000">
+                },
+                speed: 100,//切换速度,即slider自动滑动开始到结束的时间（单位ms），也是触摸滑动时释放至贴合的时间。
+                loop: true,
+                grabCursor : true,//设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。（根据浏览器形状有所不同）
+
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // 如果需要滚动条
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+            })
+        })
+    </script>
 </head>
 <body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide1">Slide 1</div>
+        <div class="swiper-slide swiper-slide2" data-swiper-autoplay="2000">Slide 2</div>
+        <div class="swiper-slide swiper-slide3">Slide 3</div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
 
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- 如果需要滚动条 -->
+   <!-- <div class="swiper-scrollbar"></div>-->
+</div>
+
+<script>
+
+</script>
 </body>
+
 </html>
