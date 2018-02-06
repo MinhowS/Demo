@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已知高度宽度元素的水平垂直居中</title>
+    <style>
+        .father1 {
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            position: relative;
+        }
+        .father1 .son1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+        }
+        .father2 {
+            width: 500px;
+            height: 500px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+        .father2 .son2 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: gray;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<p>一、绝对定位与负边距实现。</p>
+<p>利用绝对定位，将元素的top和left属性都设为50%，再利用margin边距，将元素回拉它本身高宽的一半，实现垂直居中</p>
+<div class="father1">
+    <div class="son1">我有宽高</div>
+</div>
+<p>二、绝对定位与margin</p>
+<p>这种方法也是利用绝对定位与margin</p>
+<div class="father2">
+    <div class="son2">
+        有宽高
+    </div>
+</div>
+</body>
+</html>
