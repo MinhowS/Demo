@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用flexbox实现多块状元素的水平居中</title>
+    <style>
+        .father {
+            display: flex;
+            justify-content: center;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<!--利用flexbox实现多块状元素的水平居中，只需要将父级容器的Css设置：
+            display: flex;
+            justify-content: center;
+-->
+<div class="father">
+    <div class="son">块1</div>
+    <div class="son">块2</div>
+    <div class="son">块3</div>
+    <div class="son">块4</div>
+    <div class="son">块5</div>
+</div>
+</body>
+</html>
