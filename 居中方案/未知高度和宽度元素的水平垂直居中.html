@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未知高度和宽度元素的水平垂直居中</title>
+    <style>
+        .father1 {
+            width: 300px;
+            height: 300px;
+            background-color: greenyellow;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .father2 {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .father2 .son2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .father3 {
+            width: 300px;
+            height: 300px;
+            background-color: orangered;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .father4 {
+            width: 300px;
+            height: 300px;
+            background-color: blanchedalmond;
+            /*w3c标准*/
+            display: box;
+            box-pack:center;
+            box-align:center;
+            /*Fire Fox*/
+            display: -moz-box;
+            -moz-box-pack: center;
+            -moz-box-align: center;
+            /*google，safari*/
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<p>一、当要被居中的元素是inline或者inline-block元素</p>
+<p>当要被居中的元素是inline或者inline-block的时候，
+    可以巧妙的将父级容器设置为display:table-cell，配合text-align:center和vertical-align:middle即可以实现水平垂直居中。</p>
+<div class="father1">
+    <span class="son1">我可是inline元素</span>
+</div>
+<p>二、利用Css3的transform，可以轻松的在未知元素的高宽的情况下实现元素的垂直居中</p>
+<div class="father2">
+    <span class="son2">我也是inline元素，别忘了居中我</span>
+</div>
+<p>三、利用flex布局</p>
+<div class="father3">
+    <span class="son3">inline元素</span>
+</div>
+<p>四、css3  box-pack和box-align</p>
+<div class="father4">
+    <span class="son4">还有我也要居中的啊</span>
+</div>
+</body>
+</html>
