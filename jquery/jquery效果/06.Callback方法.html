@@ -16,7 +16,7 @@
                 })
             });
             //没有回调函数，警告框会在隐藏效果完成前弹出：
-            $("#btn2").click(function () {
+            $("#btn2").on('click',function () {
                 $("p").hide("slow");
                 alert("隐藏")
             })
