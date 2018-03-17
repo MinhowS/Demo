@@ -9,9 +9,12 @@
     <script src="../js/jquery1.11.1.js"></script>
     <script>
         $(function () {
-            $("#btn").click(function () {
-                $("p").css("color","red").slideUp(2000).slideDown(2000);
+            $('#btn').on('click',function () {
+                $("p").css('color','red').slideUp(2000).slideDown(2000);
             })
+            /*$("#btn").click(function () {
+                $("p").css("color","red").slideUp(2000).slideDown(2000);
+            })*/
         })
     </script>
 </head>
