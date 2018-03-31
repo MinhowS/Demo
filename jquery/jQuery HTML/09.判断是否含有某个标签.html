@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断是否含有某个标签</title>
+    <script src="../js/jquery1.11.1.js"></script>
+    <script>
+        $(function () {
+            //判断.father类下是否含有p标签和span标签
+            let father = $('#father');
+            if (father.has('p').length){
+                console.log('.father类下含有p标签')
+            }
+            if (father.has('span').length){
+                console.log('.father类下含有span标签');
+            } else {
+                console.log('.father类下不含有span标签');
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="father">
+        <p></p>
+    </div>
+</body>
+</html>
