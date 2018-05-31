@@ -10,7 +10,7 @@
     <script>
         $(function () {
             //返回css属性 将返回首个匹配元素的css属性
-            $("#btn1").(function () {
+            $("#btn1").on(function () {
                 console.log("背景色是："+ $("p").css("background-color"))
             });
             //设置css属性 为所有匹配元素设置css属性
