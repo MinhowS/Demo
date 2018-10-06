@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>compact</title>
+    <script src="../js/lodash.js"></script>
+</head>
+<body>
+排除数组[1,2,null,4,undefined,6,'',9,"",12,0,NaN,false,true]中的“假”值 0,undefined,null,NaN,false,''  compact
+<p id="app"></p>
+<script>
+    let arr1 = [1,2,null,4,undefined,6,'',9,"",12,0,NaN,false,true];
+    var arr2 = _.compact(arr1);
+    console.log(arr2);
+</script>
+</body>
+</html>
