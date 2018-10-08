@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>compact</title>
+    <script src="../js/lodash.js"></script>
+</head>
+<body>
+concat 创建一个新数组，将array与任何数组 或 值连接在一起。
+数组[1,2]和 ，3,[4],[[5]],[[[6]]]]  concat
+[1,2,3,4,[5],[[6]]]
+<p id="app"></p>
+<script>
+    let arr1 = [1,2];
+    var arr2 = _.concat(arr1,3,[4],[[5]],[[[6]]]);
+    // console.log(arr);
+    // document.getElementById("app").innerHTML= arr;
+    console.log(arr2);
+</script>
+</body>
+</html>
